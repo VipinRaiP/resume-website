@@ -18,26 +18,13 @@ const Experience = () => {
                 Where I've Worked
             </motion.h2>
 
-            <div style={{ display: 'flex', flexDirection: 'row', gap: '20px' }}>
-                <div style={{ display: 'flex', flexDirection: 'column', borderLeft: '2px solid var(--card-bg)' }}>
+            <div className="experience-content">
+                <div className="experience-tabs">
                     {resumeData.experience.map((job, index) => (
                         <button
                             key={index}
                             onClick={() => setActiveTab(index)}
-                            style={{
-                                background: activeTab === index ? 'rgba(17, 34, 64, 0.5)' : 'transparent',
-                                border: 'none',
-                                borderLeft: activeTab === index ? '2px solid var(--accent-color)' : '2px solid transparent',
-                                color: activeTab === index ? 'var(--accent-color)' : 'var(--text-secondary)',
-                                padding: '15px 20px',
-                                textAlign: 'left',
-                                fontFamily: 'var(--font-mono)',
-                                fontSize: '13px',
-                                cursor: 'pointer',
-                                marginLeft: '-2px',
-                                transition: 'all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1)',
-                                width: '200px'
-                            }}
+                            className={`experience-tab-button ${activeTab === index ? 'active' : ''}`}
                         >
                             {job.company}
                         </button>
